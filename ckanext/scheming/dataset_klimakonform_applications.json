@@ -64,7 +64,7 @@
             "label": "Application Type",
             "help_text": "Select at least one application type",
             "preset": "multiple_checkbox",
-            "required": "true",
+            "required": true,
             "choices": [
                 {
                     "value": "Visualization Service",
@@ -107,7 +107,7 @@
         {
             "field_name": "name",
             "label": "Name",
-            "validators": "if_empty_same_as(url) unicode",
+            "validators": "if_empty_same_as(url)",
             "form_placeholder": "leave blank to use resource file name"
         },
         {

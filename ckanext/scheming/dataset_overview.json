@@ -122,7 +122,7 @@
         {
             "field_name": "name",
             "label": "CKAN Default: Name",
-            "validators": "if_empty_same_as(url) unicode"
+            "validators": "if_empty_same_as(url)"
         },
         {
             "field_name": "description",
@@ -132,7 +132,7 @@
         {
             "field_name": "format",
             "label": "CKAN Default: Format",
-            "validators": "if_empty_guess_format ignore_missing clean_format unicode",
+            "validators": "if_empty_guess_format ignore_missing clean_format",
 			"form_snippet": "fixed_autocomplete.html",
 			"form_placeholder": "eg. CSV, XML or JSON",
 			"form_attrs": {

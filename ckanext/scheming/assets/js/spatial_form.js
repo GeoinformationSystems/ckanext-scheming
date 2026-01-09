@@ -21,7 +21,7 @@
         data-module="spatial-form"
         data-input_id="{{ id }}"
         data-extent="{{ value }}" 
-        data-module-site_url="{{ h.dump_json(h.url('/', locale='default', qualified=true)) }}" 
+        data-module-site_url="{{ h.dump_json(h.url_for('/', locale='default', qualified=true)) }}" 
         data-module-map_config="{{ h.dump_json(map_config) }}">
       <div id="dataset-map-container"></div>
     </div>

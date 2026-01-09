@@ -64,7 +64,7 @@
             "label": "Theme / Category",
             "help_text": "Select at least one INSPIRE theme. Further information at: http://inspire.ec.europa.eu/theme",
             "preset": "multiple_checkbox",
-            "required": "true",
+            "required": true,
             "choices": [
                 {
                     "value": "http://inspire.ec.europa.eu/theme/ad",
@@ -243,6 +243,11 @@
             "preset": "date_range_end"
         },
         {
+            "field_name": "temporal_coverage",
+            "label": "Temporal Coverage Total",
+            "preset": "date_range_total"
+        },
+        {
             "field_name": "temporal_resolution",
             "label": "Temporal Resolution",
             "preset": "textinput",
@@ -274,43 +279,9 @@
         {
             "field_name": "product_type",
             "label": "Datensatztyp",
-            "help_text": "Select a dataset type",
-            "preset": "multiple_checkbox",
-            "required": "true",
-            "choices": [
-                {
-                    "value": "Klimaprojektion",
-                    "label": "Klimaprojektion"
-                },
-                {
-                    "value": "Beobachtungsdaten",
-                    "label": "Beobachtungsdaten"
-                },
-                {
-                    "value": "Hydrologische Daten",
-                    "label": "Hydrologische Daten"
-                },
-                {
-                    "value": "Geologische Daten",
-                    "label": "Geologische Daten"
-                },
-                {
-                    "value": "Geobasisdaten",
-                    "label": "Geobasisdaten"
-                },
-                {
-                    "value": "Landnutzungsdaten",
-                    "label": "Landnutzungsdaten"
-                },
-                {
-                    "value": "Oberflächen- /Geländemodelle",
-                    "label": "Oberflächen- /Geländemodelle"
-                },
-                {
-                    "value": "Geobasisdaten",
-                    "label": "Geobasisdaten"
-                }
-            ]
+            "required_if_value_in": "spatial_resolution",
+            "preset": "product_type",
+            "help_text": "Select a dataset type"
         },
         {
             "field_name": "license_id",
@@ -329,7 +300,7 @@
         {
             "field_name": "name",
             "label": "Name",
-            "validators": "if_empty_same_as(url) unicode",
+            "validators": "if_empty_same_as(url)",
             "form_placeholder": "leave blank to use resource file name"
         },
         {

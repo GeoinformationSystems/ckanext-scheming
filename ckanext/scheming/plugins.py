@@ -212,8 +212,10 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
     SCHEMA_OPTION = 'scheming.dataset_schemas'
     FALLBACK_OPTION = 'scheming.dataset_fallback'
     SCHEMA_TYPE_FIELD = 'dataset_type'
-    SCHEMA_FILTER_ORDER = ['product_type', 'organization', 'groups', 'tags', 'res_format', 'license_id']
-    SCHEMA_FILTER_TITLES = [p.toolkit._('Datentyp'), p.toolkit._('Organizations'), p.toolkit._('Groups'), p.toolkit._('Tags'), p.toolkit._('Formats'), p.toolkit._('License')]
+    # SCHEMA_FILTER_ORDER = ['product_type', 'organization', 'groups', 'tags', 'res_format', 'license_id']
+    # SCHEMA_FILTER_TITLES = [p.toolkit._('Datentyp'), p.toolkit._('Organizations'), p.toolkit._('Groups'), p.toolkit._('Tags'), p.toolkit._('Formats'), p.toolkit._('License')]
+    SCHEMA_FILTER_ORDER = ['product_type', 'temporal_coverage', 'organization', 'tags', 'res_format', 'license_id', ]
+    SCHEMA_FILTER_TITLES = [p.toolkit._('Datentyp'),  p.toolkit._('Zeitliche Abdeckung'), p.toolkit._('Organizations'), p.toolkit._('Tags'), p.toolkit._('Formats'), p.toolkit._('License')]
 
     @classmethod
     def _store_instance(cls, self):
@@ -253,6 +255,7 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
     def dataset_facets(self, facets_dict, package_type):
         #facets_dict['type'] = p.toolkit._('Type')        
         # Return the updated facet dict.
+        query = model.Session.query(model.Package)
         return self.get_filter_config()
             
     def organization_facets(self, facets_dict, organization_type, package_type):

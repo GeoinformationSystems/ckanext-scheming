@@ -356,7 +356,16 @@ def get_validator_or_converter(name):
     Get a validator or converter by name
     """
     if name == 'unicode':
-        return six.text_type
+        # return a user-defined wrapper so navl.convert can inspect __code__
+        def _to_unicode(value, context=None):
+            if value is None:
+                return value
+            try:
+                return six.text_type(value)
+            except Exception:
+                return value
+
+        return _to_unicode
     try:
         v = get_validator(name)
         return v

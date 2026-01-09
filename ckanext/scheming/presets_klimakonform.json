@@ -89,7 +89,7 @@
 				"validators": "not_empty scheming_valid_json_object",
 				"form_snippet": "spatial_extent.html",
 				"display_snippet": "json.html",
-				"display_property": "dcat:Dataset/dct:spatial"
+				"display_property": "dcat:Dataset/dct:spatial/dcat:bbox"	
 			}
 		},
 		{
@@ -143,6 +143,47 @@
 			}
 		},
 		{
+		"preset_name": "product_type",
+			"values": {
+				"classes": [
+					"col-md-8 no-padding"
+				],
+				"form_snippet": "fixed_select.html",
+				"display_snippet": "select.html",
+				"validators": "ignore_missing unicode scheming_choices_ignore_missing check_required_field",
+				"choices": [
+					{
+						"value": "Klimaprojektion",
+						"label": "Klimaprojektion"
+					},
+					{
+						"value": "Beobachtungsdaten",
+						"label": "Beobachtungsdaten"
+					},
+					{
+						"value": "Hydrologische Daten",
+						"label": "Hydrologische Daten"
+					},
+					{
+						"value": "Geologische Daten",
+						"label": "Geologische Daten"
+					},
+					{
+						"value": "Geobasisdaten",
+						"label": "Geobasisdaten"
+					},
+					{
+						"value": "Landnutzungsdaten",
+						"label": "Landnutzungsdaten"
+					},
+					{
+						"value": "Oberflächen- /Geländemodelle",
+						"label": "Oberflächen- /Geländemodelle"
+					}
+				]
+			}
+		},
+		{
 			"preset_name": "date_range_start",
 			"values": {
 				"validators": "ignore_missing unicode",
@@ -162,6 +203,13 @@
 					"no-padding"
 				],
 				"form_snippet": "fixed_date.html"
+			}
+		},
+		{
+			"preset_name": "date_range_total",
+			"values": {
+				"form_snippet": null,
+				"display_snippet": null
 			}
 		},
 		{
